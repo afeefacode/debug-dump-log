@@ -1,5 +1,6 @@
 {
     "name": "afeefa/debug-dump-log",
+    "version": "0.0.1",
     "description": "Simple console or logfile debugging",
     "type": "library",
     "license": "MIT",
@@ -10,11 +11,14 @@
         }
     ],
     "autoload": {
-      "files": [
-        "functions.php"
-      ]
+        "files": [
+            "functions.php"
+        ]
     },
     "require": {
         "wujunze/php-cli-color": "^2.4"
+    },
+    "require-dev": {
+        "afeefa/package-manager": "^0.0.6"
     }
 }
