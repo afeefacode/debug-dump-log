@@ -1,0 +1,20 @@
+{
+    "name": "afeefa/debug-dump-log",
+    "description": "Simple console or logfile debugging",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Afeefa Kollektiv",
+            "email": "kollektiv@afeefa.de"
+        }
+    ],
+    "autoload": {
+      "files": [
+        "functions.php"
+      ]
+    },
+    "require": {
+        "wujunze/php-cli-color": "^2.4"
+    }
+}
