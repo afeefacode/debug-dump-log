@@ -16,7 +16,14 @@ function dump($arguments)
 
     $bt = debug_backtrace();
     $caller = array_shift($bt);
-    $file = $caller['file'];
+
+    if (php_sapi_name() === 'cli') {
+        $rootPath = preg_quote(getcwd(), '/');
+        $file = preg_replace("/^$rootPath/", '', $caller['file']);
+    } else {
+        $rootPath = $_SERVER['DOCUMENT_ROOT'];
+        $file = preg_replace("/^$rootPath/", '', $caller['file']);
+    }
 
     $fileInfo = $file . ':' . $caller['line'] . '#' . $caller['function'];
     if (php_sapi_name() === 'cli') {
