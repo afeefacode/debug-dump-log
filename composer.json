@@ -11,11 +11,15 @@
         }
     ],
     "autoload": {
-        "files": [
+      "psr-4": {
+          "Afeefa\\Component\\Debug\\": "."
+      },
+      "files": [
             "functions.php"
         ]
     },
     "require": {
+        "webmozart/path-util": "^2.3",
         "wujunze/php-cli-color": "^2.4"
     },
     "require-dev": {

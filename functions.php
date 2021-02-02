@@ -1,58 +1,22 @@
 <?php
 
-use Wujunze\Colors;
+use Afeefa\Component\Debug\Debug;
 
-// put in a useless default argument in order to allow the
-// ide to cursor into the function brackets
-function dump($arguments)
+// put in a useless default argument in order to allow
+// the ide to cursor into the function brackets
+function debug_dump($arguments): void
 {
-    if (php_sapi_name() === 'cli') {
-        echo "\n";
-    } else {
-        echo '<pre>';
-    }
+    Debug::dump(...func_get_args());
+}
 
-    $args = func_get_args();
+// put in a useless default argument in order to allow
+// the ide to cursor into the function brackets
+function debug_log($arguments): void
+{
+    Debug::log(...func_get_args());
+}
 
-    $bt = debug_backtrace();
-    $caller = array_shift($bt);
-
-    if (php_sapi_name() === 'cli') {
-        $rootPath = preg_quote(getcwd(), '/');
-        $file = preg_replace("/^$rootPath/", '', $caller['file']);
-    } else {
-        $rootPath = $_SERVER['DOCUMENT_ROOT'];
-        $file = preg_replace("/^$rootPath/", '', $caller['file']);
-    }
-
-    $fileInfo = $file . ':' . $caller['line'] . '#' . $caller['function'];
-    if (php_sapi_name() === 'cli') {
-        $colors = new Colors();
-        $fileInfo = $colors->getColoredString($fileInfo, 'light_gray');
-    } else {
-        $fileInfo = '<span style="color:#AAAAAA;">' . $fileInfo . '</span>';
-    }
-    echo $fileInfo . "\n";
-
-    foreach ($args as $arg) {
-        $dump = print_r($arg, true);
-        $dump = preg_replace('/[ ]{4}/', '  ', $dump);
-        $dump = preg_replace("/\n\s*\(/", '', $dump);
-        $dump = preg_replace("/\)\n/", '', $dump);
-        $dump = preg_replace('/ => Array/', ' => []', $dump);
-        $dump = preg_replace("/.*\*RECURSION\*.*\n/", '', $dump);
-        $dump = preg_replace("/^\s+$/m", '', $dump);
-        $dump = preg_replace("/\n+/", "\n", $dump);
-        $dump = preg_replace("/:.+:private\]/", '-]', $dump);
-        $dump = preg_replace("/:protected\]/", '÷]', $dump);
-        $dump = preg_replace("/(=> [^\s]+) Object/", '$1', $dump);
-
-        echo $dump . ' ';
-    }
-
-    if (php_sapi_name() === 'cli') {
-        echo "\n";
-    } else {
-        echo '</pre>';
-    }
+function debug_log_info(): void
+{
+    Debug::log_info();
 }
