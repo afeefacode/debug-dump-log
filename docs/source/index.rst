@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to afeefa/debug-dump-log's documentation!
+afeefa/debug-dump-log
 =================================================
 
 .. toctree::
