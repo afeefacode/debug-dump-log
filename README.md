@@ -125,3 +125,7 @@ You may specify a custom location by setting the `AFEEFA_DEBUG_LOG_DIR` env vari
   ```
 
 * Setting the variable at server level is of course possible, too.
+
+### Why this library?
+
+It is not always possible or appropriate to configure a huge debugging or logging framework overhead around a small or short time project. This library is made for the everyday life, just plug in and use, work on the project, not on the configuration.
