@@ -44,11 +44,11 @@ debug_dump($string, $object, new Animal());
 
 **HTML output** `debug_dump()` and `print_r()`
 
-![output](./_static/html.gif "output")
+![output](https://raw.githubusercontent.com/afeefacode/debug-dump-log/main/docs/source/_static/html.gif "output")
 
 **Log example**
 
-![output](./_static/cli.gif "output")
+![output](https://raw.githubusercontent.com/afeefacode/debug-dump-log/main/docs/source/_static/cli.gif "output")
 
 ## Installation
 
