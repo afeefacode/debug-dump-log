@@ -2,6 +2,9 @@
 
 Dump one or more variables to the screen or into a log file.
 
+Links: [Github project](https://github.com/afeefacode/debug-dump-log) and [Documentation](https://afeefa-debug-dump-log.readthedocs.io/)
+
+
 ## Description
 
 This is a convenience wrapper around PHP's `print_r()` function with the ability to:
