@@ -70,15 +70,21 @@ class Debug
             $dump = preg_replace("/:protected\]/", '÷]', $dump);
             $dump = preg_replace("/(=> [^\s]+) Object/", '$1', $dump);
 
-            $messages[] = $dump . ' ';
+            $messages[] = trim($dump) . ' ';
         }
-        return implode("\n", $messages);
+        return implode("\n\n", $messages);
     }
 
     private static function getFileInfo($operation): string
     {
         $bt = debug_backtrace();
+
         $caller = $bt[2];
+        $callerCaller = $bt[3] ?? $caller;
+        $function = $callerCaller['function'];
+        if (in_array($function, ['debug_dump', 'debug_log'])) {
+            $function = 'main';
+        }
 
         if (php_sapi_name() === 'cli') {
             $file = Path::makeRelative($caller['file'], getcwd());
@@ -86,7 +92,7 @@ class Debug
             $file = Path::makeRelative($caller['file'], $_SERVER['DOCUMENT_ROOT']);
         }
 
-        $fileInfo = $file . ':' . $caller['line'] . '#' . $caller['function'];
+        $fileInfo = $file . ':' . $caller['line'] . '#' . $function;
 
         if ($operation === 'dump') {
             if (php_sapi_name() === 'cli') {
@@ -111,7 +117,13 @@ class Debug
 
         $currentDir = getenv('AFEEFA_DEBUG_LOG_DIR');
 
-        if (!$currentDir) {
+        if ($currentDir) {
+            if (php_sapi_name() === 'cli') {
+                $currentDir = Path::makeAbsolute($currentDir, getcwd());
+            } else {
+                $currentDir = Path::makeAbsolute($currentDir, $_SERVER['DOCUMENT_ROOT']);
+            }
+        } else {
             if (php_sapi_name() === 'cli') {
                 $currentDir = getcwd();
             } else {
