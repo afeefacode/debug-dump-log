@@ -23,6 +23,6 @@
         "wujunze/php-cli-color": "^2.4"
     },
     "require-dev": {
-        "afeefa/package-manager": "^0.0.7"
+        "afeefa/package-manager": "^0"
     }
 }
