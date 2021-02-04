@@ -33,7 +33,7 @@ copyright = '2021, Afeefa Kollektiv'
 author = 'Afeefa Kollektiv'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.6'
+# release =
 
 
 # -- General configuration ---------------------------------------------------
@@ -68,3 +68,30 @@ html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
 
 source_suffix = ['.rst', '.md']
+
+import re
+import subprocess
+import os
+
+def copy_readme():
+  with open('../../README.md', 'r') as file :
+      filedata = file.read()
+
+  slogan = re.match(r"(# .+)Links", filedata, flags=re.S)
+  slogan = slogan.group(1)
+
+  filedata = re.sub(r"# .+## Description", "# Documentation\n\n## Description", filedata, flags=re.S)
+
+  with open('documentation.md', 'w') as file:
+      file.write(filedata)
+
+  if not os.path.exists('../build'):
+      os.makedirs('../build')
+
+  with open('../build/slogan.md', 'w') as file:
+      file.write(slogan)
+
+  subprocess.call('m2r2 documentation.md --overwrite', shell=True)
+  os.remove('documentation.md')
+
+copy_readme()
