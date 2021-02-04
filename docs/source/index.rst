@@ -1,7 +1,8 @@
-.. mdinclude:: ../build/slogan.md
+.. mdinclude:: ../../README.md
 
 .. toctree::
+    :hidden:
     :maxdepth: 2
 
-    documentation
+    configuration
     GitHub Repository <https://github.com/afeefacode/debug-dump-log>
