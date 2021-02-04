@@ -70,14 +70,14 @@ By default, the function looks for the log file at `[PROJECT_ROOT]/.afeefa/debug
 * Web app:
 
   The function assumes the web app is served from a `project/public` directory and sets `PROJECT_ROOT` to the parent of the document root:
-  ```javascript
+  ```php
   $PROJECT_ROOT = $_SERVER['DOCUMENT_ROOT'] . "/..";
   ```
 
 * Cli app:
 
   The function assumes you are running the cli right from the project root.
-  ```javascript
+  ```php
   $PROJECT_ROOT = getcwd();
   ```
 
