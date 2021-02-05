@@ -5,10 +5,6 @@ import m2r2
 from sphinx.highlighting import lexers
 from pygments.lexers.web import PhpLexer
 
-# enable highlighting for PHP code not between <?php ... ?> by default
-lexers['php'] = PhpLexer(startinline=True)
-lexers['php-annotations'] = PhpLexer(startinline=True)
-
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -29,11 +25,9 @@ lexers['php-annotations'] = PhpLexer(startinline=True)
 # -- Project information -----------------------------------------------------
 
 project = 'afeefa/debug-dump-log'
-copyright = '2021, Afeefa Kollektiv'
 author = 'Afeefa Kollektiv'
-
-# The full version, including alpha/beta/rc tags
-# release =
+copyright = author
+language = 'en'
 
 
 # -- General configuration ---------------------------------------------------
@@ -68,3 +62,7 @@ html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
 
 source_suffix = ['.rst', '.md']
+
+# enable highlighting for PHP code not between <?php ... ?> by default
+lexers['php'] = PhpLexer(startinline=True)
+lexers['php-annotations'] = PhpLexer(startinline=True)
