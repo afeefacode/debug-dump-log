@@ -23,12 +23,5 @@
         "wujunze/php-cli-color": "^2.4"
     },
     "require-dev": {
-        "afeefa/package-manager": "^0"
-    },
-    "archive": {
-        "exclude": [
-          "/docs",
-          "/tests"
-        ]
     }
 }
