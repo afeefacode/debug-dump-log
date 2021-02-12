@@ -12,7 +12,7 @@ This is a convenience wrapper around PHP's `print_r()` function with the ability
 * show less verbose output
 * format output depending on the output channel (html, cli, log)
 
-The package provides two global functions `debug_dump()` and `debug_log()` that can be called from elsewhere within a PHP project without explicit import. Yet, a log file must be [configured](#Configuration) in order to use `debug_log()`.
+The package provides two global functions `debug_dump()` and `debug_log()` that can be called from elsewhere within a PHP project without explicit import. Yet, a log file must be configured in order to use `debug_log()`.
 
 ## Example
 
