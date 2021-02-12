@@ -10,18 +10,20 @@
             "email": "kollektiv@afeefa.de"
         }
     ],
-    "autoload": {
-      "psr-4": {
-          "Afeefa\\Component\\Debug\\": "."
-      },
-      "files": [
-            "functions.php"
-        ]
-    },
     "require": {
+        "php": ">=7.4",
         "webmozart/path-util": "^2.3",
         "wujunze/php-cli-color": "^2.4"
     },
     "require-dev": {
+        "afeefa/package-manager": "^0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Afeefa\\Component\\Debug\\": "."
+        },
+        "files": [
+            "functions.php"
+        ]
     }
 }
