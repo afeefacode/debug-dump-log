@@ -62,7 +62,7 @@ Using the `debug_log` function requires a little log file configuration you can 
 
 ## Documentation
 
-https://afeefa-debug-dump-log.readthedocs.io/
+https://afeefa-debug-dump-log.readthedocs.io
 
 
 ### Why this library?
