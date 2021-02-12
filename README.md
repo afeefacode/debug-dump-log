@@ -52,9 +52,13 @@ debug_dump($string, $object, new Animal());
 
 ## Installation
 
+Install via composer as usual:
+
 ```bash
 composer require afeefa/debug-dump-log
 ```
+
+Using the `debug_log` function requires a little log file configuration you can read about in the documentation.
 
 ## Documentation
 
