@@ -2,7 +2,7 @@
 
 namespace Afeefa\Component\Debug;
 
-use Webmozart\PathUtil\Path;
+use Symfony\Component\Filesystem\Path;
 use Wujunze\Colors;
 
 class Debug

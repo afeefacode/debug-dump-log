@@ -4,7 +4,7 @@ namespace Afeefa\Component\Debug;
 
 use Afeefa\Component\Package\Actions\Install as PackageInstall;
 use Afeefa\Component\Package\Files\Files;
-use Webmozart\PathUtil\Path;
+use Symfony\Component\Filesystem\Path;
 
 class Install extends PackageInstall
 {
@@ -18,11 +18,12 @@ class Install extends PackageInstall
 
             Files::file()
                 ->path(Path::join($this->projectConfigPath, '.gitignore'))
-                ->content(<<<EOT
-*
-!.gitignore
+                ->content(
+                    <<<EOT
+                        *
+                        !.gitignore
 
-EOT
+                        EOT
                 )
         ]);
     }
