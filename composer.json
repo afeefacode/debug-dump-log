@@ -1,6 +1,6 @@
 {
     "name": "afeefa/debug-dump-log",
-    "version": "0.0.32",
+    "version": "0.0.33",
     "description": "Simple console or logfile debugging",
     "type": "library",
     "license": "MIT",
